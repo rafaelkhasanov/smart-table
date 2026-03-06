@@ -1,7 +1,7 @@
-import { getPages } from "../lib/utils.js";
+import {getPages} from "../lib/utils.js";
 
 export const initPagination = (
-  { pages, fromRow, toRow, totalRows },
+  {pages, fromRow, toRow, totalRows},
   createPage
 ) => {
   // @todo: #2.3 — подготовить шаблон кнопки для страницы и очистить контейнер
@@ -37,16 +37,16 @@ export const initPagination = (
     });
   }
 
-  const updatePagination = (total, { page, limit}) => {
+  const updatePagination = (total, {page, limit}) => {
     pageCount = Math.ceil(total / limit);
 
     // @todo: #2.4 — получить список видимых страниц и вывести их
     const visiblePages = getPages(page, pageCount, 5);
     pages.replaceChildren(
-        ...visiblePages.map((pageNumber) => {
-          const el = pageTemplate.cloneNode(true);
-          return createPage(el, pageNumber, pageNumber === page);
-        })
+      ...visiblePages.map((pageNumber) => {
+        const el = pageTemplate.cloneNode(true);
+        return createPage(el, pageNumber, pageNumber === page);
+      })
     );
 
     // @todo: #2.5 — обновить статус пагинации
