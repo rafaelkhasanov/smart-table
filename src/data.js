@@ -27,7 +27,7 @@ export function initData(sourceData) {
         return { sellers, customers };
     };
 
-    const getRecords = async () => {
+    const getRecords = async (query, isUpdated = false) => {
         const qs = new URLSearchParams(query); // преобразуем объект параметров в SearchParams объект, представляющий query часть url
         const nextQuery = qs.toString(); // и приводим к строковому виду
 
